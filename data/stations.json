@@ -1,0 +1,9 @@
+{
+  "stations": [
+    { "id": 1, "name": "Downtown Hub", "lat": 40.7128, "lng": -74.006, "cycles": 12, "distance": 0.3 },
+    { "id": 2, "name": "Central Park", "lat": 40.785, "lng": -73.968, "cycles": 8, "distance": 1.2 },
+    { "id": 3, "name": "Brooklyn Bridge", "lat": 40.706, "lng": -73.996, "cycles": 5, "distance": 2.1 },
+    { "id": 4, "name": "Times Square", "lat": 40.758, "lng": -73.986, "cycles": 15, "distance": 0.8 },
+    { "id": 5, "name": "Battery Park", "lat": 40.703, "lng": -74.017, "cycles": 6, "distance": 1.5 }
+  ]
+}
