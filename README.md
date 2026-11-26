@@ -1,30 +1,52 @@
-# Velo cycle sharing prototype
+# Velo — IoT Smart Cycle Sharing (Rider App)
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Velo is a smart cycle-sharing system for campuses and smart cities. This repository is the **rider-facing web app prototype**: find stations on a map, unlock a cycle with a QR code, track rides and earn reward points.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/gaurav-sonis-projects/v0-velo-cycle-sharing-prototype)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/qc0YxSTWcAE)
+Velo was published as a research paper and won **1st place at an international conference at LCIT**:
 
-## Overview
+> A. Kushwaha, A. Sahu, **G. Soni**, N. Kushwaha, S. Sahu, *"Velo: An IoT-Based SmartCycle Sharing System for Sustainable Urban Mobility"*, **JETIR**, Vol. 13, Issue 3, March 2026, pp. 45-46.
+> Paper: http://www.jetir.org/view?paper=JETIRHQ06008
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+- **Live demo:** https://velo-flame.vercel.app
 
-## Deployment
+## System overview
 
-Your project is live at:
+Velo has three layers (see the paper for details):
 
-**[https://vercel.com/gaurav-sonis-projects/v0-velo-cycle-sharing-prototype](https://vercel.com/gaurav-sonis-projects/v0-velo-cycle-sharing-prototype)**
+| Layer | What it does | Repository |
+|---|---|---|
+| Device | Arduino Uno with Bluetooth and an electronic lock; each cycle has a QR code / RFID identity | (hardware) |
+| Application | Rider app: map, QR unlock, ride history, rewards | **this repo** |
+| Cloud backend | REST API for rentals, bikes, alerts and camera status | [velo-backend](https://github.com/Gaurav-Soni24/velo-backend) |
+| Admin | Operator dashboard for bikes, rentals, users and alerts | [velo-frontend](https://github.com/Gaurav-Soni24/velo-frontend) |
 
-## Build your app
+## Features (this app)
 
-Continue building your app on:
+- **Station map** built with Leaflet and station data from `data/stations.json`.
+- **QR modal** to start a ride at a station.
+- **Ride tracking** with duration, distance and ride history.
+- **Rewards** with points and bronze / silver / gold levels, persisted in the browser.
+- Responsive UI with light and dark themes.
 
-**[https://v0.app/chat/qc0YxSTWcAE](https://v0.app/chat/qc0YxSTWcAE)**
+## Tech stack
 
-## How It Works
+Next.js, React, TypeScript, Tailwind CSS, Radix UI, Framer Motion, Leaflet, Recharts.
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Run locally
+
+```bash
+git clone https://github.com/Gaurav-Soni24/Velo.git
+cd Velo
+npm install
+npm run dev
+```
+
+Open http://localhost:3000.
+
+## Notes
+
+The UI was prototyped with [v0](https://v0.app) and then extended by hand. Ride and reward data in this prototype is stored in the browser (`localStorage`); the production-style API lives in `velo-backend`.
+
+## Author
+
+Gaurav Soni — https://gauravsoni.space
