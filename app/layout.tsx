@@ -9,9 +9,8 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Velo: RFID Smart Cycle Sharing | IoT System Explained",
+  description: "Velo is an IoT cycle-sharing system: RFID rentals from a ground station, camera-based alerts, a cloud API and an admin panel. Try the live simulator. Published in JETIR 2026.",
   icons: {
     icon: [
       {
