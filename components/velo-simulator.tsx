@@ -21,20 +21,20 @@ const ACTORS: Record<Actor, { label: string; icon: LucideIcon; colour: string }>
   arduino: { label: "Arduino + RFID", icon: Cpu, colour: "bg-amber-100 text-amber-800" },
   camera: { label: "AI camera", icon: Camera, colour: "bg-fuchsia-100 text-fuchsia-800" },
   ground: { label: "Ground station", icon: Laptop, colour: "bg-sky-100 text-sky-800" },
-  cloud: { label: "Cloud API", icon: Server, colour: "bg-emerald-100 text-emerald-800" },
+  cloud: { label: "Cloud API", icon: Server, colour: "bg-teal-100 text-teal-800" },
   database: { label: "Database", icon: Database, colour: "bg-violet-100 text-violet-800" },
   admin: { label: "Admin panel", icon: LayoutDashboard, colour: "bg-slate-200 text-slate-800" },
 }
 
 const TONE_BORDER = {
-  ok: "border-l-emerald-500",
-  error: "border-l-red-500",
-  warn: "border-l-amber-500",
-  info: "border-l-border",
+  ok: "border-teal-300 bg-teal-50/60",
+  error: "border-red-300 bg-red-50/60",
+  warn: "border-amber-300 bg-amber-50/60",
+  info: "border-border bg-card",
 } as const
 
 const STATUS_STYLE = {
-  available: "border-emerald-300 bg-emerald-50 text-emerald-800",
+  available: "border-teal-300 bg-teal-50 text-teal-800",
   rented: "border-sky-300 bg-sky-50 text-sky-800",
   missing: "border-red-300 bg-red-50 text-red-800",
 } as const
@@ -225,7 +225,7 @@ export function VeloSimulator() {
             {trace.slice(0, shown).map((step, i) => {
               const a = ACTORS[step.actor]
               return (
-                <div key={`${i}-${step.title}`} className={`animate-in fade-in slide-in-from-bottom-1 rounded-lg border border-l-4 border-border bg-card p-3 ${TONE_BORDER[step.tone]}`}>
+                <div key={`${i}-${step.title}`} className={`animate-in fade-in slide-in-from-bottom-1 rounded-lg border p-3 ${TONE_BORDER[step.tone]}`}>
                   <div className="flex items-center gap-2">
                     <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${a.colour}`}>
                       <a.icon className="h-3 w-3" />
@@ -248,7 +248,7 @@ export function VeloSimulator() {
         <div className="grid gap-4 rounded-xl border border-border bg-background p-4 md:grid-cols-[auto_1fr_1fr]">
           <div className="grid grid-cols-2 gap-3 md:w-56">
             {[
-              ["Available", stats.available, "text-emerald-700"],
+              ["Available", stats.available, "text-teal-700"],
               ["Rented", stats.rented, "text-sky-700"],
               ["Missing", stats.missing, "text-red-700"],
               ["Open alerts", stats.openAlerts, "text-amber-700"],
@@ -278,7 +278,7 @@ export function VeloSimulator() {
               {sim.events.length === 0 && <p className="text-sm text-foreground/50">No taps yet.</p>}
               {sim.events.slice(0, 5).map((e) => (
                 <div key={e.id} className="flex items-start gap-2 text-xs">
-                  <span className={`mt-1 h-2 w-2 shrink-0 rounded-full ${e.ok ? "bg-emerald-500" : "bg-red-500"}`} />
+                  <span className={`mt-1 h-2 w-2 shrink-0 rounded-full ${e.ok ? "bg-teal-500" : "bg-red-500"}`} />
                   <span>
                     {e.text} <span className="font-mono text-foreground/50">({e.tag})</span>
                   </span>

@@ -54,7 +54,7 @@ x-device-key: ••••••••
 
 const methodColour: Record<string, string> = {
   POST: "bg-amber-100 text-amber-800",
-  GET: "bg-green-100 text-green-800",
+  GET: "bg-teal-100 text-teal-800",
   PATCH: "bg-sky-100 text-sky-800",
   CRUD: "bg-violet-100 text-violet-800",
 }
@@ -106,8 +106,8 @@ export function ApiReference() {
           <span className="text-sm text-foreground/60">Example request and response</span>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          <pre className="overflow-x-auto rounded-xl bg-[oklch(0.2_0.02_120)] p-4 text-xs leading-relaxed text-[oklch(0.92_0.02_120)]">{ex.request}</pre>
-          <pre className="overflow-x-auto rounded-xl bg-[oklch(0.2_0.02_120)] p-4 text-xs leading-relaxed text-[oklch(0.85_0.12_140)]">{ex.response}</pre>
+          <pre className="overflow-x-auto rounded-xl bg-[oklch(0.2_0.05_262)] p-4 text-xs leading-relaxed text-[oklch(0.93_0.015_255)]">{ex.request}</pre>
+          <pre className="overflow-x-auto rounded-xl bg-[oklch(0.2_0.05_262)] p-4 text-xs leading-relaxed text-[oklch(0.85_0.11_185)]">{ex.response}</pre>
         </div>
       </div>
     </div>

@@ -1,0 +1,200 @@
+/*
+ * Velo landing identity ("Timing Chip"). Everything is scoped to .vl so the
+ * rider prototype pages and shared components outside the landing keep their look.
+ */
+.vl {
+  --vl-blue: #2440f0;
+  --vl-blue-deep: #1a2fb8;
+  --vl-ink: #0b1236;
+  --vl-paper: #f6f6f1;
+  --vl-chalk: #e9e9e2;
+  --vl-rule: #c9cac2;
+  --vl-slate: #4a4f66;
+  --vl-lime: #c6f432;
+  --vl-lime-deep: #3f5a00;
+  --vl-red: #ff5b3a;
+  --vl-amber: #ffb020;
+
+  /* shared shadcn tokens, remapped for the landing only */
+  --background: var(--vl-paper);
+  --foreground: var(--vl-ink);
+  --card: #ffffff;
+  --card-foreground: var(--vl-ink);
+  --primary: var(--vl-blue);
+  --primary-foreground: #ffffff;
+  --secondary: var(--vl-chalk);
+  --secondary-foreground: var(--vl-ink);
+  --muted: var(--vl-chalk);
+  --muted-foreground: var(--vl-slate);
+  --accent: var(--vl-lime);
+  --accent-foreground: var(--vl-ink);
+  --border: var(--vl-rule);
+  --input: var(--vl-rule);
+  --ring: var(--vl-blue);
+  --radius: 2px;
+  --navy: var(--vl-blue-deep);
+  --navy-deep: var(--vl-ink);
+  --navy-soft: var(--vl-blue);
+  --teal: var(--vl-lime);
+  --teal-deep: var(--vl-lime-deep);
+  --amber: var(--vl-amber);
+
+  /* Tailwind palette remap so the reused simulator, API and FAQ speak the new language */
+  --color-teal-50: #f4fbdc;
+  --color-teal-100: #e8f7b6;
+  --color-teal-300: #b3d944;
+  --color-teal-400: #9cc81f;
+  --color-teal-500: #7ba800;
+  --color-teal-700: #4b6b00;
+  --color-teal-800: #3f5a00;
+  --color-sky-50: #eef1fe;
+  --color-sky-100: #dde3fd;
+  --color-sky-300: #9aa9f8;
+  --color-sky-500: #2440f0;
+  --color-sky-700: #1a2fb8;
+  --color-sky-800: #16279a;
+  --color-amber-50: #fff6e0;
+  --color-amber-100: #ffebbf;
+  --color-amber-300: #ffcf66;
+  --color-amber-500: #ffb020;
+  --color-amber-700: #8a5a00;
+  --color-amber-800: #714a00;
+  --color-red-50: #ffefeb;
+  --color-red-100: #ffdcd3;
+  --color-red-300: #ff9c85;
+  --color-red-400: #ff7a5c;
+  --color-red-500: #ff5b3a;
+  --color-red-700: #b3301a;
+  --color-red-800: #962614;
+
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  background: var(--vl-paper);
+  color: var(--vl-ink);
+}
+
+.vl :is(h1, h2, h3, h4) {
+  font-family: var(--font-archivo), ui-sans-serif, sans-serif;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.vl ::selection {
+  background: var(--vl-lime);
+  color: var(--vl-ink);
+}
+
+.vl :focus-visible {
+  outline: 2px solid var(--vl-lime);
+  outline-offset: 3px;
+}
+.vl .vl-on-paper :focus-visible,
+.vl .vl-on-paper:focus-visible {
+  outline-color: var(--vl-blue);
+}
+
+.vl code,
+.vl .vl-mono {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+/* Wide kit lettering */
+.vl-display {
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+.vl-wide {
+  font-stretch: 125%;
+}
+.vl-label {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* The chest band: ink, lime, white. Hard stops, not a blend. */
+.vl-band {
+  background: linear-gradient(to bottom, var(--vl-ink) 0 32%, var(--vl-lime) 32% 77%, #ffffff 77% 100%);
+}
+
+/* Pinned race bib */
+.vl-bib {
+  position: relative;
+  background: var(--vl-paper);
+  color: var(--vl-ink);
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgb(11 18 54 / 0.28);
+  transition:
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.vl-bib:hover {
+  box-shadow: 0 18px 40px rgb(11 18 54 / 0.32);
+}
+.vl-pin {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--vl-blue);
+  box-shadow: inset 0 0 0 2px rgb(11 18 54 / 0.35);
+}
+
+/* Buttons */
+.vl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2px;
+  padding: 0.95rem 1.4rem;
+  font-weight: 700;
+  font-stretch: 112%;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    border-color 150ms ease-out;
+}
+.vl-btn-lime {
+  background: var(--vl-lime);
+  color: var(--vl-ink);
+}
+.vl-btn-lime:hover {
+  background: #ffffff;
+}
+.vl-btn-ghost {
+  border: 2px solid rgb(255 255 255 / 0.55);
+  color: #ffffff;
+}
+.vl-btn-ghost:hover {
+  background: #ffffff;
+  color: var(--vl-blue);
+  border-color: #ffffff;
+}
+.vl-btn-ink {
+  background: var(--vl-ink);
+  color: #ffffff;
+}
+.vl-btn-ink:hover {
+  background: var(--vl-blue);
+}
+
+.vl a.vl-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Admin screenshot gets a hard ink frame */
+.vl-frame {
+  border: 2px solid var(--vl-ink);
+  border-radius: 2px;
+  box-shadow: 0 24px 60px rgb(11 18 54 / 0.35);
+}
+}

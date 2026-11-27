@@ -32,9 +32,15 @@ function Node({ icon: Icon, title, subtitle, tag, accent }: NodeProps) {
 
 function HArrow({ label }: { label: string }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-1 px-1 text-primary">
+    <div className="flex flex-col items-center justify-center gap-1.5 px-1 text-primary">
       <span className="max-w-[110px] text-center font-mono text-[10px] leading-tight whitespace-pre-line text-foreground/60">{label}</span>
-      <ArrowRight className="h-5 w-5" />
+      <div className="flex items-center">
+        {/* a data packet travelling along the link */}
+        <div className="relative h-0.5 w-10 overflow-hidden rounded bg-border">
+          <span className="flow-dot absolute left-0 top-1/2 h-1.5 w-3 -translate-y-1/2 rounded-full bg-accent" />
+        </div>
+        <ArrowRight className="-ml-1 h-4 w-4" />
+      </div>
     </div>
   )
 }
